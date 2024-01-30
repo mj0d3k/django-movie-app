@@ -1,0 +1,5 @@
+scikit-learn
+selenium
+numpy
+django
+psycopg2-binary
