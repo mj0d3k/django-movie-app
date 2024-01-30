@@ -101,7 +101,7 @@ class MovieSearchView(View):
             review_score_filter = 0
 
         path_to_json = os.path.join(settings.BASE_DIR, 'movies.json')
-        with open(path_to_json, 'r') as json_file:
+        with open(path_to_json, 'r', encoding='utf-8') as json_file:
             movies = json.load(json_file)
 
         filtered_movies = []
@@ -204,7 +204,7 @@ class MovieInfoView(View):
 
     def load_movies_from_json(self):
         path_to_json = os.path.join(settings.BASE_DIR, 'movies.json')
-        with open(path_to_json, 'r') as json_file:
+        with open(path_to_json, 'r', encoding='utf-8') as json_file:
             return json.load(json_file)
 
     def get_movie_by_id(self, movies, wikidata_id):
