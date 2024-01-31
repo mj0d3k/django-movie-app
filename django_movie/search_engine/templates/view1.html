@@ -63,7 +63,6 @@
             -webkit-animation: grain 0.5s steps(1) infinite;
             animation: grain 0.5s steps(1) infinite;
         }
-
         
         h1{
             font-size: 6em;
@@ -141,8 +140,6 @@
             margin-bottom: -0.5%;
         }
 
-
-
         .search {
             width: 100%;
             position: relative;
@@ -189,21 +186,21 @@
         }
 
         .content {
-                position: absolute;
-                text-align: left;
-                top: 40%;
-                left: 50%;
-                transform: translate(-50%, -10%);
-                height: 70vh;
-                width: 70vw;
-                overflow-y: auto;
-                color: #fff;
-                font-size: 1.3em;
+            position: absolute;
+            text-align: left;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            height: 70vh;
+            width: 70vw;
+            overflow-y: auto;
+            color: #fff;
+            font-size: 1.3em;
             }
         
         a {
-                color:#DB9F18;
-                text-decoration: none;
+            color:#DB9F18;
+            text-decoration: none;
             }
 
         .filter {
@@ -393,6 +390,7 @@
             }
         }
 
+        /* Loading */
         .loading {
             position: absolute;
             top: 50%;
@@ -402,7 +400,7 @@
             display: none;
             }
 
-            .obj {
+        .obj {
             width: 6px;
             height: 0px;
             background: #DB9F18;
@@ -411,29 +409,29 @@
             animation: loading 1.2s infinite;
             }
 
-            .obj:nth-child(2){
+        .obj:nth-child(2){
             animation-delay: 0.15s;
             }
-            .obj:nth-child(3){
+        .obj:nth-child(3){
             animation-delay: 0.3s;
             }
-            .obj:nth-child(4){
+        .obj:nth-child(4){
             animation-delay: 0.45s;
             }
-            .obj:nth-child(5){
+        .obj:nth-child(5){
             animation-delay: 0.6s;
             }
-            .obj:nth-child(6){
+        .obj:nth-child(6){
             animation-delay: 0.75s;
             }
-            .obj:nth-child(7){
+        .obj:nth-child(7){
             animation-delay: 0.9s;
             }
-            .obj:nth-child(8){
+        .obj:nth-child(8){
             animation-delay: 1.05s;
             }
 
-            @keyframes loading {
+        @keyframes loading {
             0% {
                 height: 0;
             }
@@ -497,7 +495,6 @@
     {% endif %}
 </div>
 
-
 <div class="loading" id="loadingAnimation">
     <div class="obj"></div>
     <div class="obj"></div>
@@ -521,13 +518,9 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function(){
-        // Hide the loading animation when the page is fully loaded
         document.getElementById("loadingAnimation").style.display = "none";
-
-        // Add click event listener to all links
         document.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
-                // Show the loading animation when a link is clicked
                 document.getElementById("loadingAnimation").style.display = "flex";
             });
         });

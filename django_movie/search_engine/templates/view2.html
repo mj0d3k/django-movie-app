@@ -41,9 +41,7 @@
         .filmstrip a {
             color: #DB9F18;
             font-size: 1.2em;
-            /* text-decoration: none; */
         }
-
 
         h1{
             font-size: 6em;
@@ -98,13 +96,11 @@
             text-align: center;
             font-size: 1.5em;
             color: #f4f0e7;
-
         }
 
         #main_incoming, #main_outgoing, #main_pie {
             background-color: #f4f0e7;
             border-radius: 10px;
-
         }
 
         .movie-info {
@@ -222,30 +218,30 @@
             border-radius: 10px;
             }
 
-            #slide0:checked ~ .nav > label[for="slide0"],
-            #slide1:checked ~ .nav > label[for="slide1"],
-            #slide2:checked ~ .nav > label[for="slide2"],
-            #slide3:checked ~ .nav > label[for="slide3"],
-            #slide4:checked ~ .nav > label[for="slide4"],
-            #slide5:checked ~ .nav > label[for="slide5"],
-            #slide6:checked ~ .nav > label[for="slide6"],
-            #slide7:checked ~ .nav > label[for="slide7"],
-            #slide8:checked ~ .nav > label[for="slide8"],
-            #slide9:checked ~ .nav > label[for="slide9"] {
+        #slide0:checked ~ .nav > label[for="slide0"],
+        #slide1:checked ~ .nav > label[for="slide1"],
+        #slide2:checked ~ .nav > label[for="slide2"],
+        #slide3:checked ~ .nav > label[for="slide3"],
+        #slide4:checked ~ .nav > label[for="slide4"],
+        #slide5:checked ~ .nav > label[for="slide5"],
+        #slide6:checked ~ .nav > label[for="slide6"],
+        #slide7:checked ~ .nav > label[for="slide7"],
+        #slide8:checked ~ .nav > label[for="slide8"],
+        #slide9:checked ~ .nav > label[for="slide9"] {
             background: #333333;
             transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
             }
 
-            #slide0:checked ~ .slides { margin-left: 0; }
-            #slide1:checked ~ .slides { margin-left: -100%; }
-            #slide2:checked ~ .slides { margin-left: -200%; }
-            #slide3:checked ~ .slides { margin-left: -300%; }
-            #slide4:checked ~ .slides { margin-left: -400%; }
-            #slide5:checked ~ .slides { margin-left: -500%; }
-            #slide6:checked ~ .slides { margin-left: -600%; }
-            #slide7:checked ~ .slides { margin-left: -700%; }
-            #slide8:checked ~ .slides { margin-left: -800%; }
-            #slide9:checked ~ .slides { margin-left: -900%; }
+        #slide0:checked ~ .slides { margin-left: 0; }
+        #slide1:checked ~ .slides { margin-left: -100%; }
+        #slide2:checked ~ .slides { margin-left: -200%; }
+        #slide3:checked ~ .slides { margin-left: -300%; }
+        #slide4:checked ~ .slides { margin-left: -400%; }
+        #slide5:checked ~ .slides { margin-left: -500%; }
+        #slide6:checked ~ .slides { margin-left: -600%; }
+        #slide7:checked ~ .slides { margin-left: -700%; }
+        #slide8:checked ~ .slides { margin-left: -800%; }
+        #slide9:checked ~ .slides { margin-left: -900%; }
     </style>
 </head>
 <body>
@@ -259,7 +255,6 @@
     <p><strong>Description:</strong> {{ movie.description }}</p>
     <p><strong>Release Date:</strong> {{ movie.release_date }}</p>    
 </div>
-
 
 <div id="wrapper">
     <div class="paragraph">
@@ -294,8 +289,6 @@
     </div>
   </div>
 
-
-
     <div class="filmstrip">
         <h2>{{ movie.title }}</h2>
         {% if poster_url %}
@@ -328,18 +321,18 @@
         var incomingViewsSum = incomingData.reduce((sum, item) => sum + parseInt(item.views), 0);
         var outgoingViewsSum = outgoingData.reduce((sum, item) => sum + parseInt(item.views), 0);
 
-    function createPieChart(containerId, incomingSum, outgoingSum) {
-    var myChart = echarts.init(document.getElementById(containerId));
-    var option = {
+        function createPieChart(containerId, incomingSum, outgoingSum) {
+        var myChart = echarts.init(document.getElementById(containerId));
+        var option = {
         title: {
             text: 'Incoming vs Outgoing Pageviews',
             left: 'center'
         },
-        tooltip: {
+            tooltip: {
             trigger: 'item',
             formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
-        series: [
+            series: [
             {
                 name: 'Pageviews Type',
                 type: 'pie',
@@ -371,8 +364,8 @@
         ]
     };
 
-    myChart.setOption(option);
-}
+        myChart.setOption(option);
+    }
 
         function createBarChart(containerId, data, titleText) {
             data.sort(function(a, b) {
@@ -492,12 +485,9 @@
 
     myChart.setOption(option);
 }
-
-
     createPieChart('main_pie', incomingViewsSum, outgoingViewsSum);
     createBarChart('main_incoming', incomingData, 'Incoming Pageviews');
     createScatterChart('main_outgoing', outgoingData, 'Outgoing Pageviews');
 </script>
-
 </body>
 </html>
