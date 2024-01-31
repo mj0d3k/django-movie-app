@@ -1,23 +1,34 @@
 from django.views import View
-from django.shortcuts import render, get_object_or_404
-from django.views import View
+from django.shortcuts import render
 from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
-import math
-import string
-import re
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import time
-import json
 from selenium.webdriver.common.by import By
-from django.http import JsonResponse
-import os
 from django.conf import settings
 from django.http import Http404
+import numpy as np
+import time
+import json
+import os
 
 
 class MovieSearchView(View):
+    """
+    Class designed for a movie search engine,
+    provides functionality to process user queries,
+    and return relevant movie results.
+
+    Methods:
+    - jaccard_similarity with kgrams;
+    - correct_query;
+    - calculate_tf_idf:
+    - search_movies;
+
+    Attributes:
+    - WEIGHTS: A dictionary assigning weights to various movie attributes,
+      influencing their importance in the TF-IDF calculation.
+    """
+
     template_name = 'view1.html'
 
     WEIGHTS = {
@@ -128,6 +139,22 @@ class MovieSearchView(View):
 
 
 class MovieInfoView(View):
+    """
+    Class responsible for presenting detailed information about a movie.
+    Able to fetch and display movie-related data,
+    such as clickstream information from external sources
+    and movie posters from Wikipedia.
+
+    Methods:
+    - fetch_clickstream_data;
+    - fetch_data_for_movie;
+    - create_url;
+    - create_wikipedia_link;
+    - fetch_movie_poster_url;
+    - load_movies_from_json;
+    - get_movie_by_id;
+    """
+
     def fetch_clickstream_data(self, movie_title):
         chrome_options = Options()
         chrome_options.add_argument('--headless')
