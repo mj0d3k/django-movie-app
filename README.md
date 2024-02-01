@@ -6,7 +6,7 @@ How to run the following app:
 - create venv
 - install reqs or:
     - pip install scikit-learn selenium numpy django psycopg2-binary
-- python manage.p runserver
+- python manage.py runserver
 (remember to run this command inside first catalog 'django-movie' - you need access to manage.py file, otherwhise runserver command will not work)
 
 Check if your fav movie is in our dataset.
